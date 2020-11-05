@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 /**
  * todo implement functional component which receive form parent
  * bages - array with names
@@ -14,10 +12,9 @@ import React from 'react';
  */
 const RadioBadge = ( props ) => {
 
-  return (
-    <>
-    </>
-  );
+    return (
+        <>
+        </>
+    );
 };
-
 export default RadioBadge;
