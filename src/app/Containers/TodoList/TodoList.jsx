@@ -48,38 +48,37 @@ export class TodoList extends React.Component {
     render() {
         const {list, isLoading, error } = this.props;
         return (
-            <div className='main-container'>
-                {error && <h3 style={{color: 'red'}}>{error.message}</h3>}
-                <ToDoInput addTask={this.addTask}/>
-                <div className='task-container'>
-                    { list && list.map(elem => (
-                        <TodoItem
-                            {...elem}
-                            key={elem.id}
-                            id={elem.id}
-                            handleChange={() => this.props.onCheckTask(elem.id)}
-                            deleteTask={() => this.props.onDeleteTask(elem.id)}
-                            isCompleted={elem.isCompleted}
+            <div>
+                <div className='main-container'>
+                    <ToDoInput addTask={this.addTask}/>
+                    <div className='task-container'>
+                        { list && list.filter(elem => {
+                            switch (this.state.filter) {
+                                case 'Completed':
+                                    return elem.isCompleted;
+                                case 'ToDo':
+                                    return !elem.isCompleted;
+                                case  'All':
+                                    return true;
+                            }
+                        }).map(elem => (
+                            <TodoItem
+                                {...elem}
+                                key={elem._id}
+                                id={elem._id}
+                                handleChange={() => this.props.onCheckTask(elem._id)}
+                                deleteTask={() => this.props.onDeleteTask(elem._id)}
+                                isCompleted={elem.isCompleted}
+                            />
+                        ))}
+                    </div>
+                    <div className={'options-panel'}>
+                        <RadioBadge
+                            disabled={isLoading}
+                            bags={controlBadges}
+                            onChange={(a) => this.filterList(a)}
                         />
-                    ))}
-                </div>
-                <div className={list.length ? 'options-panel' : 'none'}>
-                    <button
-                        disabled={isLoading}
-                        onClick={this.props.onCheckAll}
-                        value='all'
-                        className='button-new'>
-                        {list.filter(elem => !elem.isCompleted).length} tasks left
-                    </button>
-                    <RadioBadge
-                        bags={controlBadges}
-                        onChange={(a) => this.props.onFilters(a)}
-                    />
-                    <button
-                        disabled={isLoading}
-                        onClick={this.props.onClearCompleted} value='clear'
-                        className={!list.filter(elem => elem.isCompleted).length ? 'button-hide' : 'button-new'}>clearCompleted
-                    </button>
+                    </div>
                 </div>
             </div>
         )

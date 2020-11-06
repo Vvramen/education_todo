@@ -7,7 +7,7 @@ export default function ToDoInput({addTask, value, onChange}){
                    value={value}
                    id='input-text'
                    className='text-input'
-                   placeholder='Enter yuor task name here'
+                   placeholder='Enter your task here'
                    onChange={onChange}
                    onKeyPress={addTask}
             />
