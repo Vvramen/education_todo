@@ -34,13 +34,6 @@ import {
  */
 export class TodoList extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            filter: 'All'
-        }
-
-    }
 
     componentDidMount() {
         this.props.onStart()
@@ -68,7 +61,7 @@ export class TodoList extends React.Component {
 
 
     render() {
-        const {list, isLoading, error } = this.props;
+        const {list, isLoading } = this.props;
         return (
             <div>
                 <div className='main-container'>
