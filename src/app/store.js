@@ -3,9 +3,7 @@ import reducer from './Containers/TodoList/reducer';
 import {applyMiddleware} from "redux";
 import thunkMiddleware from 'redux-thunk'
 
-const rootReducer = combineReducers({
-  reducer,
-});
+const rootReducer = combineReducers({reducer});
 
 const logger = () => next => action => {
   console.group(action.type)
@@ -15,7 +13,7 @@ const logger = () => next => action => {
   return result
 }
 
-const middlewareEnhancer = applyMiddleware(thunkMiddleware, logger)
+const middlewareEnhancer = applyMiddleware(thunkMiddleware)
 
 const store = createStore(rootReducer, middlewareEnhancer);
 

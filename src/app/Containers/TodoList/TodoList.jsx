@@ -34,6 +34,14 @@ import {
  */
 export class TodoList extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            filter: 'All'
+        }
+
+    }
+
     componentDidMount() {
         this.props.onStart()
     }
@@ -44,6 +52,20 @@ export class TodoList extends React.Component {
         this.props.onAddTask(text);
         e.target.value = '';
     }
+    filterList = filter =>  {
+        switch (filter) {
+            case 'All':
+                this.setState({ filter: 'All'})
+                break
+            case 'ToDo':
+                this.setState({ filter: 'ToDo'})
+                break
+            case 'Completed':
+                this.setState({ filter: 'Completed'})
+                break
+        }
+    }
+
 
     render() {
         const {list, isLoading, error } = this.props;

@@ -1,6 +1,5 @@
 import React from 'react';
 import './TodoItem.scss';
-import store from "../../store";
 
 
 /**
