@@ -1,4 +1,6 @@
 import React from 'react';
+
+
 /**
  * todo implement functional component which receive form parent
  * bages - array with names
@@ -10,18 +12,12 @@ import React from 'react';
  * NOTE: this is component which show the ALL, TODO, Completed bages at the control panel
  *
  */
-const RadioBadge = ({checked, onChange, bags }) => {
-    return (
-        <div className='div-buttons'>
-            {bags.map(item => <div key={item}>
-                <input type='radio'
-                       name='radio'
-                       id={item + 'id'}
-                       onChange={(e) => onChange(e.target.value)} value={item}
-                       checked={item === checked}/>
-                <label htmlFor={item + 'id'}>{item}</label>
-            </div>)}
-        </div>
-    );
+const RadioBadge = ( props ) => {
+
+  return (
+    <>
+    </>
+  );
 };
+
 export default RadioBadge;

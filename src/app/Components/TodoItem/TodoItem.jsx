@@ -1,6 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import {actions, initialState, todoSlice} from "../../Containers/TodoList/todoSlice";
+import {useState} from 'react';
+import { connect } from 'react-redux'
 import './TodoItem.scss';
-
+import TodoList from "../../Containers/TodoList/TodoList";
+import removeTodo from "../../Containers/TodoList/TodoList"
 
 /**
  * todo implement here component which will show todo item
@@ -15,27 +22,34 @@ import './TodoItem.scss';
  *
  * NOTE: need to pass task id into callbacks as param
  */
-export default function TodoItem({handleChange, id, isCompleted, text, deleteTask}) {
+
+const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
     return (
-        <div className='task'>
-            <div className='one-task'>
-                <input
-                    type='checkbox'
-                    key={id}
-                    id={id}
-                    checked={isCompleted}
-                    onChange={handleChange}
-                    className={isCompleted ? 'check-checked':''}
-                /><label htmlFor={id}/>
-                <p className={isCompleted ? 'completed-task':''}>{text}</p>
-            </div>
-            <div
-                className='trash-style'
-                id={id}
-                onClick={deleteTask}
-            />
-        </div>
+        <React.Fragment>
+            <li className="todo"
+                key={id}
+                style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+                // checked={checked}
+                // onCheck={onCheck}
+            >
+                <input type="checkbox" onClick={markAsChecked}/>
+                <div className="taskText">
+                    {todo.text}
+                    <div className="deleteTask" onClick={onRemove}>
+                        <img src='https://img.icons8.com/android/12/000000/trash.png' alt="error"/>
+                    </div>
+                </div>
+            </li>
+            <hr/>
+        </React.Fragment>
     )
+};
+
+TodoItem.propTypes = {
+    text: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    markAsChecked: PropTypes.bool.isRequired,
+    onRemove: PropTypes.func.isRequired,
 }
 
-
+export default TodoItem

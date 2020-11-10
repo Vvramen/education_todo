@@ -1,126 +1,67 @@
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  min-height: 75px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
-  overflow: auto;
-}
-
-.text-input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  height: 50px;
-  width: 450px;
-  border-top: 1px solid white;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  border-bottom: 1px solid darkgrey;
-  outline: none;
-  text-indent: 15px;
-  font-size: 18px;
-}
-
-.text-input::-webkit-input-placeholder {
-  color: grey;
-}
-
-.options-panel {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  text-indent: 10px;
-  width: 475px;
-  height: 50px;
-  font-size: 15px;
-}
-
-.div-buttons{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 200px;
-}
-
-input[type="radio"] {
-  display: inline-block;
-}
-input[type="radio"]{
-  display: none;
-}
-
-input[type="radio"] + label {
-  background: none;
-  font-size: 15px;
+//todo implement styles for the TodoList here
+.todo-list {
+  background: white;
+  border-radius: 4px;
   padding: 5px;
-  border: 1px solid white;
+  max-width: 370px;
+  margin: 0 auto;
+  filter: drop-shadow(1px 1px 7px black);
 }
-input[type="radio"]:checked + label {
-  border: 1px solid darkgrey;
-  border-radius: 5px;
-}
-
-.button-new {
-  background: none;
-  height: 35px;
-  font-size: 15px;
-  border: none;
-  color: darkgrey;
-  outline: none;
-}
-
-.button-new:hover {
-  outline: none;
-  color: black;
-}
-
-.button-hide {
-  background: none;
-  height: 35px;
-  font-size: 15px;
-  border: none;
-  color: white;
-}
-
-.button-hide:focus {
-  outline: none;
-
-}
-.none{
-  display: none;
-}
-
-.div-input{
-  height: 90px;
-
-}
-.logout{
+.footer {
+  margin: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  list-style: none;
+  padding: 0 0 0 17px;
 }
-.button {
-  background: none;
-  height: 35px;
-  font-size: 15px;
-  border: 1px solid darkgrey;
-  border-radius: 2px;
-  color: darkgrey;
+.filterButton {
+  margin-right: 5px;
+}
+.clearTasksButton {
+  padding-top: 3px;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: gray;
+  float: right;
+  margin-left: 10px;
+}
+.clearTasksButton:hover{
+  cursor: pointer;
+}
+.input {
+  width: 95%;
+  border: none;
+  padding: 0 1vh 0 1vh;
   outline: none;
 }
-
-.button:hover {
-  outline: none;
-  color: black;
-  border: 1px solid black;
+.taskCount {
+  padding-top: 3px;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: gray;
+  margin-right: 15px;
+}
+.taskCount:hover {
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+.footer-button {
+  margin-right: 15px;
+}
+button {
+  background: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+.list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.footerSection {
+  height: 30px;
+  padding-top: 10px;
+}
+.form {
+  padding: 10px 0 10px 0;
 }
