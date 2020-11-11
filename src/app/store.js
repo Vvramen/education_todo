@@ -1,16 +1,10 @@
-import {combineReducers, createStore} from '@reduxjs/toolkit';
-import reducer from './Containers/TodoList/reducer';
-import {applyMiddleware} from "redux";
-import thunkMiddleware from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit';
+import todo from './Containers/TodoList/todoSlice'
 
-const rootReducer = combineReducers({reducer});
+export default configureStore({
+  reducer: {
+    todo
+    // todo: //todo link here todo reducer from the slice
 
-const middlewareEnhancer = applyMiddleware(thunkMiddleware)
-
-const store = createStore(rootReducer, middlewareEnhancer);
-
-store.subscribe(() => {
-  console.log('store', store.getState().reducer);
-})
-
-export default store;
+  },
+});
