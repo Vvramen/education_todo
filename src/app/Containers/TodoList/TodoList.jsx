@@ -42,7 +42,7 @@ const TodoList = (props) => {
     useEffect(()  => {
         const todoList = todos.filter(FILTER_MAP['All'])
         setState({items: todoList, filter: 'All'})
-        console.log('LOOG fsdfsdfsdfs');
+        console.log('LOOG');
     },[todos])
 
     useEffect(() => {
@@ -118,7 +118,7 @@ const selectVisibleTodos = createSelector(
 )
 
 TodoList.propTypes = {
-    todos: PropTypes.array.isRequired,
+    todos: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({todos: state.todo})
