@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/*todo place your todo header here */}
-         Hello User, its your Todo'list
+        Your todo list
       </header>
       <section>
         <TodoList/>

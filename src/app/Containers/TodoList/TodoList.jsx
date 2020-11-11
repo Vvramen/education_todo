@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import TodoItem from '../../Components/TodoItem/TodoItem';
 import {actions, initialState, todoSlice} from './todoSlice';
@@ -42,7 +43,7 @@ const TodoList = (props) => {
     useEffect(()  => {
         const todoList = todos.filter(FILTER_MAP['All'])
         setState({items: todoList, filter: 'All'})
-        console.log('LOOG');
+        console.log('LOOG fsdfsdfsdfs');
     },[todos])
 
     useEffect(() => {
@@ -57,6 +58,14 @@ const TodoList = (props) => {
     const checkAllTodos = () => {
         console.log(todos)
     }
+
+
+    let kol= [];
+    function lostCountToDo (el){
+        if (el.completed == true) {kol.push(el)}
+    };
+
+
     return (
         <React.Fragment>
             <div className="todo-list">
@@ -79,6 +88,7 @@ const TodoList = (props) => {
                         />
                         ))}
                 </div>
+                {todos.length != 0 &&
                 <div className="footerSection">
                     <ul className="footer">
                         <li
@@ -106,6 +116,7 @@ const TodoList = (props) => {
                         </li>
                     </ul>
                 </div>
+                }
             </div>
         </React.Fragment>
     )
@@ -118,7 +129,7 @@ const selectVisibleTodos = createSelector(
 )
 
 TodoList.propTypes = {
-    todos: PropTypes.array.isRequired
+    todos: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = state => ({todos: state.todo})

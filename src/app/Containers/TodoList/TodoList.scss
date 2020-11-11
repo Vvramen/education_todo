@@ -42,7 +42,6 @@
 }
 .taskCount:hover {
   cursor: pointer;
-  color: gray;
 }
 li {
   list-style: none;
@@ -60,9 +59,20 @@ button {
   overflow-y: auto;
 }
 .footerSection {
-  height: 30px;
+  text-align: right;
+  vertical-align: middle;
+  align-content: center;
+  height: 50px;
   padding-top: 10px;
 }
 .form {
   padding: 10px 0 10px 0;
+}
+.active {
+  //text-transform: uppercase;
+  border: 2px solid gray;
+}
+
+input[type=radio]{
+  display: none;
 }
