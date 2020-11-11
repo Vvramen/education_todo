@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import checkbox from 'react-bootstrap/checkbox';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import {actions, initialState, todoSlice} from "../../Containers/TodoList/todoSlice";
 import {useState} from 'react';
 import { connect } from 'react-redux'
@@ -29,14 +28,15 @@ const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
         <React.Fragment>
             <li className="todo"
                 key={id}
+                style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+                // checked={checked}
+                // onCheck={onCheck}
             >
-                <input type="checkbox" onClick={markAsChecked} checked={todo.completed}/>
-
-                <label className = "checkbox" onClick={markAsChecked} checked={todo.completed}></label>
-                <div className="taskText" style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
+                <input type="checkbox" onClick={markAsChecked}/>
+                <div className="taskText">
                     {todo.text}
                     <div className="deleteTask" onClick={onRemove}>
-                        <img src="https://img.icons8.com/android/12/000000/trash.png" width="20px" height="20px"/>
+                        <img src='https://img.icons8.com/android/12/000000/trash.png' alt="error"/>
                     </div>
                 </div>
             </li>
@@ -48,7 +48,7 @@ const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
 TodoItem.propTypes = {
     text: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-    markAsChecked: PropTypes.bool.isRequired,
+    markAsChecked: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
 }
 

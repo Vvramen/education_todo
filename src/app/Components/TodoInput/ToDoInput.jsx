@@ -7,9 +7,10 @@ const mapDispatch = { addTodo: actions.addTodo }
 
 const ToDoInput = ( props ) => {
     const [value, setValue] = useState("");
+    // const newTodos = [...todos, { text: value, id: new Date().getTime(), isCompleted: false }];
     const handleSubmit = e => {
         e.preventDefault();
-        if ( !value ) {
+        if (!value) {
             return ;
         }
         props.addTodo(value)
