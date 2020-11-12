@@ -93,7 +93,7 @@ const TodoList = (props) => {
                     <ul className="footer">
                         <li
                             className="taskCount"
-                            onClick={checkAll}
+                            onClick={() => checkAll()}
                         >
                             {todos.length} tasks left
                         </li>
@@ -110,7 +110,7 @@ const TodoList = (props) => {
                         </li>
                         <li
                             className="clearTasksButton"
-                            onClick={clearCompleted}
+                            onClick={() => clearCompleted()}
                         >
                             Clear completed
                         </li>

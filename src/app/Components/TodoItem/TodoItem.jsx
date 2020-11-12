@@ -25,14 +25,16 @@ import removeTodo from "../../Containers/TodoList/TodoList"
  */
 
 const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
+    console.log('LOOG', markAsChecked, );
     return (
         <React.Fragment>
             <li className="todo"
                 key={id}
             >
-                <input type="checkbox" onClick={markAsChecked} checked={todo.completed}/>
+                <input type="checkbox" onChange={markAsChecked}
+                        checked={todo.completed}/>
 
-                <label className = "checkbox" onClick={markAsChecked} checked={todo.completed}></label>
+                <label className = "checkbox" onClick={markAsChecked} />
                 <div className="taskText" style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
                     {todo.text}
                     <div className="deleteTask" onClick={onRemove}>
@@ -48,7 +50,7 @@ const TodoItem = ({todo, text, id, completed, markAsChecked, onRemove}) => {
 TodoItem.propTypes = {
     text: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
-    markAsChecked: PropTypes.bool.isRequired,
+    markAsChecked: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
 }
 
